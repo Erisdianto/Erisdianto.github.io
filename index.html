@@ -3,188 +3,301 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profil Pribadi</title>
+
+<title>Eko Risdianto | Personal Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
+overflow-x:hidden;
+background:#000;
+color:white;
+}
+
+/* Aurora Background */
+body::before{
+content:"";
+position:fixed;
+width:300%;
+height:300%;
+top:-100%;
+left:-100%;
+background:
+radial-gradient(circle,#00ffcc33 10%,transparent 30%),
+radial-gradient(circle,#ff00ff33 10%,transparent 30%),
+radial-gradient(circle,#00aaff33 10%,transparent 30%);
+animation:aurora 20s linear infinite;
+z-index:-3;
+}
+
+@keyframes aurora{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* Stars */
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-2;
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:blink 3s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.2;}
+}
+
+/* Mountain */
+.mountain{
+position:fixed;
+bottom:0;
+width:100%;
+height:250px;
+background:
+linear-gradient(to top,#071d3b,#10264a);
+clip-path:polygon(0 100%,0 60%,15% 30%,30% 70%,45% 20%,60% 80%,75% 35%,90% 70%,100% 40%,100% 100%);
+z-index:-1;
+}
+
+.fog{
+position:fixed;
+bottom:0;
+width:200%;
+height:180px;
+background:rgba(255,255,255,.08);
+filter:blur(40px);
+animation:fogMove 20s linear infinite;
+z-index:-1;
+}
+
+@keyframes fogMove{
+0%{transform:translateX(-30%);}
+100%{transform:translateX(0);}
 }
 
 .container{
-    width:100%;
-    max-width:900px;
-    background:rgba(255,255,255,0.1);
-    backdrop-filter:blur(15px);
-    border-radius:25px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-    color:white;
+width:90%;
+max-width:1200px;
+margin:auto;
+padding:50px 0;
 }
 
-.header{
-    text-align:center;
-    padding:40px 20px;
+.profile-card{
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.2);
+border-radius:30px;
+padding:40px;
+text-align:center;
+box-shadow:0 0 30px rgba(0,255,255,.3);
+margin-top:40px;
 }
 
-.profile-img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    border:5px solid white;
-    object-fit:cover;
-    margin-bottom:15px;
+.profile-card img{
+width:180px;
+height:180px;
+border-radius:50%;
+border:5px solid white;
+object-fit:cover;
 }
 
-.header h1{
-    font-size:36px;
-    margin-bottom:10px;
+h1{
+margin-top:20px;
+font-size:3rem;
 }
 
-.header p{
-    font-size:18px;
-    opacity:0.9;
+.subtitle{
+color:#00ffff;
+margin:10px 0;
+font-size:1.2rem;
 }
 
-.content{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-    padding:30px;
+.bio{
+max-width:800px;
+margin:auto;
+line-height:1.8;
 }
 
-.card{
-    background:rgba(255,255,255,0.15);
-    border-radius:20px;
-    padding:20px;
-    transition:0.3s;
+.section{
+margin-top:50px;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,0.25);
+.section h2{
+text-align:center;
+margin-bottom:20px;
+font-size:2rem;
+color:#00ffff;
 }
 
-.card h2{
-    margin-bottom:15px;
-    color:#FFD700;
+.socials{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
 }
 
-ul{
-    list-style:none;
+.socials a{
+padding:15px 25px;
+border-radius:50px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+background:linear-gradient(45deg,#00b4ff,#00ff99);
+transition:.4s;
 }
 
-ul li{
-    margin-bottom:10px;
+.socials a:hover{
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 0 20px cyan;
 }
 
-.social{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+.rspad{
+background:rgba(255,255,255,.1);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+line-height:1.8;
 }
 
-.social a{
-    text-decoration:none;
-    color:white;
-    background:#2563eb;
-    padding:10px 15px;
-    border-radius:10px;
-    transition:0.3s;
-}
-
-.social a:hover{
-    background:#1d4ed8;
-}
-
-.footer{
-    text-align:center;
-    padding:20px;
-    background:rgba(0,0,0,0.2);
+footer{
+text-align:center;
+padding:30px;
+margin-top:50px;
+color:#ddd;
 }
 
 @media(max-width:768px){
-    .content{
-        grid-template-columns:1fr;
-    }
+h1{
+font-size:2rem;
+}
+.profile-card{
+padding:25px;
+}
 }
 </style>
 </head>
 
 <body>
 
+<div class="stars" id="stars"></div>
+<div class="mountain"></div>
+<div class="fog"></div>
+
 <div class="container">
 
-    <div class="header">
-        <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-img">
+<div class="profile-card">
 
-        <h1>Nama Anda</h1>
-        <p>Radiografer | Administrator Rumah Sakit | Pecinta Teknologi</p>
-    </div>
+<img src="https://i.imgur.com/8Km9tLL.jpg" alt="Eko Risdianto">
 
-    <div class="content">
+<h1>Eko Risdianto</h1>
 
-        <div class="card">
-            <h2>👤 Tentang Saya</h2>
-            <p>
-                Halo! Saya adalah seorang profesional yang memiliki minat
-                pada bidang kesehatan, teknologi informasi, dan pengembangan sistem.
-                Saya senang belajar hal baru serta berbagi pengalaman kepada orang lain.
-            </p>
-        </div>
+<p class="subtitle">
+Profesional | Radiologi | Teknologi Informasi Kesehatan
+</p>
 
-        <div class="card">
-            <h2>📋 Informasi Pribadi</h2>
-            <ul>
-                <li><strong>Nama :</strong> Nama Anda</li>
-                <li><strong>Kota :</strong> Jakarta</li>
-                <li><strong>Pekerjaan :</strong> Pegawai Rumah Sakit</li>
-                <li><strong>Email :</strong> emailanda@gmail.com</li>
-                <li><strong>Hobi :</strong> Tenis, Membaca, Traveling</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>🎓 Keahlian</h2>
-            <ul>
-                <li>✔ Manajemen Pelayanan Kesehatan</li>
-                <li>✔ Sistem Informasi Rumah Sakit</li>
-                <li>✔ Microsoft Office</li>
-                <li>✔ Analisis Data</li>
-                <li>✔ Public Speaking</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>🌐 Media Sosial</h2>
-
-            <div class="social">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">TikTok</a>
-                <a href="#">YouTube</a>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer">
-        © 2026 - Website Profil Pribadi
-    </div>
+<p class="bio">
+Selamat datang di halaman profil pribadi saya.
+Saya memiliki ketertarikan pada bidang pelayanan kesehatan,
+manajemen rumah sakit, transformasi digital kesehatan,
+radiologi, interoperabilitas data kesehatan, dan pengembangan sistem informasi modern.
+</p>
 
 </div>
 
+<div class="section">
+<h2>Sosial Media</h2>
+
+<div class="socials">
+
+<a href="#">WhatsApp</a>
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">LinkedIn</a>
+<a href="#">TikTok</a>
+<a href="#">YouTube</a>
+<a href="#">X / Twitter</a>
+
+</div>
+</div>
+
+<div class="section">
+
+<h2>RSPAD Gatot Soebroto</h2>
+
+<div class="rspad">
+
+<h3>Rumah Sakit Pusat Angkatan Darat (RSPAD) Gatot Soebroto</h3>
+
+<p>
+RSPAD Gatot Soebroto merupakan salah satu rumah sakit rujukan nasional
+yang memberikan pelayanan kesehatan komprehensif dengan dukungan
+tenaga medis profesional dan teknologi kesehatan modern.
+</p>
+
+<p>
+Rumah sakit ini berperan penting dalam pelayanan kesehatan,
+pendidikan, penelitian, dan pengembangan layanan medis di Indonesia.
+</p>
+
+<p>
+Bidang radiologi dan diagnostik menjadi salah satu layanan unggulan
+yang mendukung ketepatan diagnosis dan penatalaksanaan pasien.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Eko Risdianto | Personal Website
+</footer>
+
+</div>
+
+<script>
+
+const stars=document.getElementById('stars');
+
+for(let i=0;i<150;i++){
+
+let star=document.createElement('div');
+
+star.classList.add('star');
+
+let size=Math.random()*3;
+
+star.style.width=size+'px';
+star.style.height=size+'px';
+
+star.style.left=Math.random()*100+'%';
+star.style.top=Math.random()*100+'%';
+
+star.style.animationDelay=Math.random()*5+'s';
+
+stars.appendChild(star);
+
+}
+
+</script>
+
 </body>
 </html>
+
+   
+
+    
