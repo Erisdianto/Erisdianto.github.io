@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Pribadi</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    color:white;
+}
+
+.header{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.profile-img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:5px solid white;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+.header h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.header p{
+    font-size:18px;
+    opacity:0.9;
+}
+
+.content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    padding:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    padding:20px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,0.25);
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#FFD700;
+}
+
+ul{
+    list-style:none;
+}
+
+ul li{
+    margin-bottom:10px;
+}
+
+.social{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.social a{
+    text-decoration:none;
+    color:white;
+    background:#2563eb;
+    padding:10px 15px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.social a:hover{
+    background:#1d4ed8;
+}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    background:rgba(0,0,0,0.2);
+}
+
+@media(max-width:768px){
+    .content{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-img">
+
+        <h1>Nama Anda</h1>
+        <p>Radiografer | Administrator Rumah Sakit | Pecinta Teknologi</p>
+    </div>
+
+    <div class="content">
+
+        <div class="card">
+            <h2>👤 Tentang Saya</h2>
+            <p>
+                Halo! Saya adalah seorang profesional yang memiliki minat
+                pada bidang kesehatan, teknologi informasi, dan pengembangan sistem.
+                Saya senang belajar hal baru serta berbagi pengalaman kepada orang lain.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>📋 Informasi Pribadi</h2>
+            <ul>
+                <li><strong>Nama :</strong> Nama Anda</li>
+                <li><strong>Kota :</strong> Jakarta</li>
+                <li><strong>Pekerjaan :</strong> Pegawai Rumah Sakit</li>
+                <li><strong>Email :</strong> emailanda@gmail.com</li>
+                <li><strong>Hobi :</strong> Tenis, Membaca, Traveling</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🎓 Keahlian</h2>
+            <ul>
+                <li>✔ Manajemen Pelayanan Kesehatan</li>
+                <li>✔ Sistem Informasi Rumah Sakit</li>
+                <li>✔ Microsoft Office</li>
+                <li>✔ Analisis Data</li>
+                <li>✔ Public Speaking</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🌐 Media Sosial</h2>
+
+            <div class="social">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">TikTok</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 - Website Profil Pribadi
+    </div>
+
+</div>
+
+</body>
+</html>
